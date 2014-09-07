@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2014 Samsung Electronics. All Rights Reserved. Source code
+    is licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See
+    the License for the specific language governing permissions and limitations
+    under the License.
+
+    IMPORTANT LICENSE NOTE: The IMAGES AND RESOURCES are licensed under the
+    Creative Commons BY-NC-SA 3.0 License
+    (http://creativecommons.org/licenses/by-nc-sa/3.0/). The source code
+    is allows commercial re-use, but IMAGES and RESOURCES forbids it.
+-->
+<resources>
+
+    <string name="app_name">HelloWorldLinked</string>
+
+    <!-- Activity: HelloWorldActivity -->
+    <string name="send_message">Send Text</string>
+    <string name="send">Send</string>
+    <string name="default_message">Hello World</string>
+    <string name="default_hint">Enter Text Here</string>
+    <string name="received_message_text_default">No message received</string>
+    <string name="received_message">Received Text:\u0020</string>
+    <string name="count_is_zero">0</string>
+    <string name="heartbeat_string">Heartbeat</string>
+    <string name="steps_string">Steps</string>
+    <string name="reset">Reset</string>
+    <string name="reset_count_failure">No connection, cannot reset counters</string>
+    <string name="status_string">Connection Status:</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="optional">Optional</string>
+    <string name="gear">Gear</string>
+    <string name="phone">Phone</string>
+
+    <!-- Image -->
+    <string name="image_preview">Image Preview</string>
+    <string name="received_image">Received Image</string>
+    <string name="image_description">Image</string>
+
+    <!-- Notifications -->
+    <string name="notif_accessory_title">Accessory Notification</string>
+    <string name="notif_system_title">System Notification</string>
+    <string name="notif_accessory_text">Sending Accessory Notification in %1$d seconds. Turn your screen OFF.</string>
+    <string name="notif_system_text">Creating System Notification in %1$d seconds. Turn your screen OFF. Make sure Gear Manager notifications are turned on for %2$s</string>
+    <string name="notif_main_text_title">Main Text</string>
+    <string name="notif_message_title">Message</string>
+    <string name="notif_custom_field_one_title">Custom Field One</string>
+    <string name="notif_custom_field_two_title">Custom Field Two</string>
+    <string name="notif_id_title">ID</string>
+    <string name="notif_item_identifier_title">Item Identifier</string>
+    <string name="notif_launch_title">Notification click launches:</string>
+    <string name="notif_launch_phone">Phone</string>
+    <string name="notif_launch_gear">Gear</string>
+
+</resources>

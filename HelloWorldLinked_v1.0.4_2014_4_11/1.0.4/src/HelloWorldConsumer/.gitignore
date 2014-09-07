@@ -1,0 +1,15 @@
+# Tizen Files
+*.wgt
+
+.build
+.sdk_delta.info
+.rds_delta
+.tproject
+
+# Eclipse files
+.settings
+
+# other stuff
+*~
+*.sh
+*.swp

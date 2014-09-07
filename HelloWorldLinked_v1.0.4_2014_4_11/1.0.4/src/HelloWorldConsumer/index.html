@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+    Copyright (C) 2014 Samsung Electronics. All Rights Reserved. Source code
+    is licensed under the Apache License, Version 2.0 (the "License"); you
+    may not use this file except in compliance with the License. You may
+    obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See
+    the License for the specific language governing permissions and limitations
+    under the License.
+
+    IMPORTANT LICENSE NOTE: The IMAGES AND RESOURCES are licensed under the
+    Creative Commons BY-NC-SA 3.0 License
+    (http://creativecommons.org/licenses/by-nc-sa/3.0/). The source code
+    is allows commercial re-use, but IMAGES and RESOURCES forbids it.
+-->
+
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="Samsung Gear Hello World Application" />
+
+<title>Samsung Gear Hello World Application</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/camera_style.css" />
+</head>
+
+<body>
+    <div class="ui-page ui-page-active" id="home">
+        <div class="ui-content">
+            <div class="ui-title">HelloWorldConsumer</div>
+
+            <div id="container-connection"
+                class="ui-connection-container btn-container">
+                <input id="connect" type=button value="Connect" />
+                <input id="disconnect" type=button value="Disconnect" />
+            </div>
+
+            <div id="container-image" class="ui-container">
+                <p class="ui-sub-title">Click image to take picture</p>
+                <div id='captured-image-container'>
+                    <img id="captured-image" src="img/gear_sample.jpg" />
+                    <p class="hidden" id="captured-image-text">Take
+                        Pic</p>
+                </div>
+                <div class="center-content">
+                    <input id="sendImage" type=button value="Send Image" />
+                </div>
+            </div>
+
+            <div id="container-hrm" class="ui-container">
+                <p class="ui-sub-title">Heart Rate Monitor</p>
+                <div class="center-content">
+                    <input id="startHeartRate" type=button value="Start" />
+                    <input id="stopHeartRate" type=button value="Stop" />
+                </div>
+                <div class="div-recv-data">
+                    <span class="recv-data-name">Heart Rate
+                        Count: </span>
+                    <span id="heartbeat-count">N/A</span>
+                </div>
+            </div>
+
+            <div id="container-messaging" class="ui-container">
+                <p class="ui-sub-title">Messaging</p>
+                <input class="center-button" id="sendMessage"
+                    type=button value="Send Message" />
+                <div class="div-recv-data">
+                    <div class="recv-data-name">Received Message:</div>
+                    <div id="text-message">N/A</div>
+                </div>
+            </div>
+
+            <div id="container-pedometer" class="ui-container">
+                <p class="ui-sub-title">Pedometer</p>
+                <div class="div-recv-data">
+                    <div class="recv-data-name">Step Count:</div>
+                    <div id="step-count">N/A</div>
+                </div>
+            </div>
+
+            <div id="container-notification" class="ui-container">
+                <p class="ui-sub-title">Notification Data</p>
+                <div class="div-recv-data">
+                    <div class="recv-data-name">ID:</div>
+                    <div id="recv-id">N/A</div>
+                </div>
+                <div class="div-recv-data">
+                    <div class="recv-data-name">Item Identifier:</div>
+                    <div id="recv-item-identifier">N/A</div>
+                </div>
+                <div class="div-recv-data">
+                    <div class="recv-data-name">Time:</div>
+                    <div id="recv-time">N/A</div>
+                </div>
+                <div class="div-recv-data">
+                    <div class="recv-data-name">Main Text:</div>
+                    <div id="recv-main-text">N/A</div>
+                </div>
+                <div class="div-recv-data">
+                    <div class="recv-data-name">Text Message:</div>
+                    <div id="recv-text-message">N/A</div>
+                </div>
+                <div class="div-recv-data">
+                    <div class="recv-data-name">Custom Field 1:</div>
+                    <div id="recv-custom-field-one">N/A</div>
+                </div>
+                <div class="div-recv-data">
+                    <div class="recv-data-name">Custom Field 2:</div>
+                    <div id="recv-custom-field-two">N/A</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-page" id="main">
+        <div class="ui-content">
+            <video id="camera-preview"></video>
+            <div id="focus-container" class="hidden">
+                <div id="focus-frame"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="js/helper/utility.js"></script>
+<script src="js/helper/navigation.js"></script>
+<script src="js/notification.js"></script>
+<script src="js/pedometer.js"></script>
+<script src="js/heartrate.js"></script>
+<script src="js/camera.js"></script>
+<script src="js/network.js"></script>
+<script src="js/main.js"></script>
+
+</html>
