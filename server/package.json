@@ -1,0 +1,9 @@
+{
+  "name": "innovation-day",
+  "version": "0.0.1",
+  "description": "Innovation Day Sever Application",
+  "dependencies": {
+    "express": "~4.8.5",
+    "socket.io": "~1.0.6"
+  }
+}

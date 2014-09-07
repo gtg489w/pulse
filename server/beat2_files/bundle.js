@@ -90,10 +90,9 @@ code.addEventListener('keydown', function (ev) {
     }
 });
 
+// clear
+$('#code').val('return function (t) {return 0; }');
 observable.input(code)(function (source) {
-    console.log(code);
-    console.log(source);
-
     try { music = Function(source)() }
     catch (err) { return console.log(err) }
     ascope.draw(music);
@@ -108,7 +107,7 @@ var goslow = function() {
     $('#code').val('var d = snare();return function (t) {return t-t/4==0? 1:d(t/2 % (2/4))*2+d(t % (2/4))+d(t*4 % (8/8))/3;};function snare () {var low0 = lowpass(130);var low1 = lowpass(80); var low2 = lowpass(20);return function (t) {return low0(snare(80, t))*5 + low1(snare(40, t+1/60))*10+ low2(snare(80, t+1/30))*5;function snare (n, o) {var scalar = Math.max(0, 0.95 - (o * n) / ((o * n) + 1));return sin(sin(sin(137)*139)*2000) * scalar;}function sin (x) { return Math.sin(2 * Math.PI * t * x) }};function lowpass (n) {var value = 0;return function (x) { return value += (x - value) / n }}}');
 };
 
-setInterval(function() {
+/*setInterval(function() {
     gofast();
 },3000);
 
@@ -124,6 +123,7 @@ setInterval(function f () {
     ascope.draw(music);
     fscope.draw(data);
 }, 50);
+*/
 
 var socket = io();
 socket.on('message', function(msg){
@@ -141,6 +141,7 @@ socket.on('message', function(msg){
         location.reload();
     }*/
     console.log(msg);
+    $('#code').val('var d = snare();return function (t) {return t-t/4==0? 1:d(t/2 % (2/4))*2+d(t % (2/4))+d(t*'+msg.tempo+' % (8/8))/3;};function snare () {var low0 = lowpass(130);var low1 = lowpass(80); var low2 = lowpass(20);return function (t) {return low0(snare(80, t))*5 + low1(snare(40, t+1/60))*10+ low2(snare(80, t+1/30))*5;function snare (n, o) {var scalar = Math.max(0, '+msg.intensity+' - (o * n) / ((o * n) + 1));return sin(sin(sin(137)*139)*2000) * scalar;}function sin (x) { return Math.sin(2 * Math.PI * t * x) }};function lowpass (n) {var value = 0;return function (x) { return value += (x - value) / n }}}');
 });
 
 
