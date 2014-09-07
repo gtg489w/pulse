@@ -99,12 +99,6 @@ observable.input(code)(function (source) {
     ascope.draw(music);
 });
 
-jQuery.fn.simulateKeyPress = function (character) {
-  // Internally calls jQuery.event.trigger
-  // with arguments (Event, data, elem). That last arguments is very important!
-  jQuery(this).trigger({ type: 'keypress', which: character.charCodeAt(0) });
-};
-
 
 var gofast = function() {
     $('#code').val('var d = snare();return function (t) {return t-t/4==0? 1:d(t/2 % (2/4))*2+d(t % (2/4))+d(t*16 % (8/8))/3;};function snare () {var low0 = lowpass(130);var low1 = lowpass(80); var low2 = lowpass(20);return function (t) {return low0(snare(80, t))*5 + low1(snare(40, t+1/60))*10+ low2(snare(80, t+1/30))*5;function snare (n, o) {var scalar = Math.max(0, 0.95 - (o * n) / ((o * n) + 1));return sin(sin(sin(137)*139)*2000) * scalar;}function sin (x) { return Math.sin(2 * Math.PI * t * x) }};function lowpass (n) {var value = 0;return function (x) { return value += (x - value) / n }}}');
@@ -130,6 +124,30 @@ setInterval(function f () {
     ascope.draw(music);
     fscope.draw(data);
 }, 50);
+
+var socket = io();
+socket.on('message', function(msg){
+    /*if(msg == 'approach') {
+        nextState = 'rest';
+        showMessage('Hmmmmm.....');
+        setTimeout(function() { showMessage('Oh! Good Morning to you too!'); playSound(0); }, 3400);
+        setTimeout(function() { showMessage('My name is Sarah!'); playSound(1); }, 2*messageInterval);
+        setTimeout(function() { showMessage('I\'m a Cooler from the Happiness Factory'); playSound(2); }, 3*messageInterval);
+        setTimeout(function() { showMessage('...and I\'m looking for my family.'); playSound(3); }, 4*messageInterval);
+        setTimeout(function() { showMessage('Do you want to help me find them?'); playSound(4); }, 5*messageInterval);
+    } else if(msg == 'collect') {
+        nextState = 'capture';
+    } else if(msg == 'reset') {
+        location.reload();
+    }*/
+    console.log(msg);
+});
+
+
+
+
+
+
 
 var time = 0;
 var data = new Float32Array(4000);
