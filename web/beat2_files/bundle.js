@@ -1,13 +1,13 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var fscope = require('frequency-viewer');
 
+
+
 module.exports = function () {
     addEventListener('message', function (ev) {
         postMessage(fscope.worker(ev.data));
     });
 };
-
-alert('here');
 
 },{"frequency-viewer":10}],2:[function(require,module,exports){
 var baudio = require('webaudio');
@@ -91,10 +91,38 @@ code.addEventListener('keydown', function (ev) {
 });
 
 observable.input(code)(function (source) {
+    console.log(code);
+    console.log(source);
+
     try { music = Function(source)() }
     catch (err) { return console.log(err) }
     ascope.draw(music);
 });
+
+jQuery.fn.simulateKeyPress = function (character) {
+  // Internally calls jQuery.event.trigger
+  // with arguments (Event, data, elem). That last arguments is very important!
+  jQuery(this).trigger({ type: 'keypress', which: character.charCodeAt(0) });
+};
+
+
+var gofast = function() {
+    $('#code').val('var d = snare();return function (t) {return t-t/4==0? 1:d(t/2 % (2/4))*2+d(t % (2/4))+d(t*16 % (8/8))/3;};function snare () {var low0 = lowpass(130);var low1 = lowpass(80); var low2 = lowpass(20);return function (t) {return low0(snare(80, t))*5 + low1(snare(40, t+1/60))*10+ low2(snare(80, t+1/30))*5;function snare (n, o) {var scalar = Math.max(0, 0.95 - (o * n) / ((o * n) + 1));return sin(sin(sin(137)*139)*2000) * scalar;}function sin (x) { return Math.sin(2 * Math.PI * t * x) }};function lowpass (n) {var value = 0;return function (x) { return value += (x - value) / n }}}');
+};
+
+var goslow = function() {
+    $('#code').val('var d = snare();return function (t) {return t-t/4==0? 1:d(t/2 % (2/4))*2+d(t % (2/4))+d(t*4 % (8/8))/3;};function snare () {var low0 = lowpass(130);var low1 = lowpass(80); var low2 = lowpass(20);return function (t) {return low0(snare(80, t))*5 + low1(snare(40, t+1/60))*10+ low2(snare(80, t+1/30))*5;function snare (n, o) {var scalar = Math.max(0, 0.95 - (o * n) / ((o * n) + 1));return sin(sin(sin(137)*139)*2000) * scalar;}function sin (x) { return Math.sin(2 * Math.PI * t * x) }};function lowpass (n) {var value = 0;return function (x) { return value += (x - value) / n }}}');
+};
+
+setInterval(function() {
+    gofast();
+},3000);
+
+setTimeout(function() {
+    setInterval(function() {
+        goslow();
+    },3000);
+}, 1500);
 
 setInterval(function f () {
     if (paused) return;
