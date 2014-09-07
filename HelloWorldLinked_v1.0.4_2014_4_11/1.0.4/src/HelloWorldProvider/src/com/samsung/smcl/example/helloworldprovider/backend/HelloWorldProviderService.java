@@ -171,7 +171,7 @@ public class HelloWorldProviderService extends SAAgent {
             HttpClient httpclient = new DefaultHttpClient();
             try {
             	//HttpResponse response = httpclient.execute(new HttpGet("http://23.21.243.158/message?tempo=8&intensity=.4"));
-            	HttpResponse response = httpclient.execute(new HttpGet("http://23.21.243.158/message?" + str));
+            	HttpResponse response = httpclient.execute(new HttpGet("http://23.21.243.158/next"));
             } catch(Exception e) {
             	e.printStackTrace();
             }

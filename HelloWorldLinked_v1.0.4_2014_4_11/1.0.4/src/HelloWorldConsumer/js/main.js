@@ -16,7 +16,6 @@
  */
 
 var MAIN = (function main() {
-    alert('here');
     var moduleName = "MAIN";
     var STRINGS = [ "Hello World!", "Hi World!", "Hey World!" ];
 
@@ -84,10 +83,16 @@ var MAIN = (function main() {
 
     function onSendMessageClick() {
         console.log("onSendMessageClick");
-        alert('here');
 
         var string = STRINGS[stringSelection++ % STRINGS.length];
         NETWORK.sendMessage(string);
+    }
+
+    function onNextBeat() {
+    	alert('here');
+        //var string = STRINGS[stringSelection++ % STRINGS.length];
+        //NETWORK.sendMessage("nextBeat");
+        alert('complete');
     }
 
     function onSendImageClick() {
@@ -189,7 +194,9 @@ var MAIN = (function main() {
 
     function onLoad() {
         console.log("onLoad");
+        
         init();
+        onConnectClick();
     }
 
     function onUnload() {
@@ -252,6 +259,8 @@ var MAIN = (function main() {
 
         document.getElementById("connect").addEventListener("click",
                 onConnectClick);
+        document.getElementById("beat").addEventListener("click",
+        		onSendMessageClick);
         document.getElementById("disconnect").addEventListener("click",
                 onDisconnectClick);
         document.getElementById("sendMessage").addEventListener("click",
@@ -264,6 +273,7 @@ var MAIN = (function main() {
                 onStopHeartRateClick);
         document.getElementById("captured-image").addEventListener("click",
                 onCapturedImageClick);
+        
     }
 
     function init() {
