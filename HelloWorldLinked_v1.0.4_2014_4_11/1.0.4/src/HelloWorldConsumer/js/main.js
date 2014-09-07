@@ -75,6 +75,7 @@ var MAIN = (function main() {
 
     function onConnectClick() {
         NETWORK.connect();
+        document.getElementById('connect').style.display = 'none';
     }
 
     function onDisconnectClick() {
